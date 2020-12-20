@@ -20,6 +20,15 @@ function App() {
     }
   }
 
+  const handleUpdateQuote = async (data) => {
+    try {
+      const updatedQuote = await axios.put(`${baseURL}/${quote.quoteId}`, data);
+      setQuote(updatedQuote.data.quote);
+    } catch (error) {
+      console.log('error', error);
+    }
+  }
+
   return (
     <div className="App">
       <Switch>
@@ -27,7 +36,7 @@ function App() {
           <RatingInformation handleCreateQuote={handleCreateQuote} />
         </Route>
         <Route exact path='/quote-overview'>
-          <QuoteOverview quote={quote} />
+          <QuoteOverview quote={quote} handleUpdateQuote={handleUpdateQuote} />
         </Route>
       </Switch>
     </div>
