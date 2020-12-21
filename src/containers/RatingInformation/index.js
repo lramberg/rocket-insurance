@@ -14,7 +14,7 @@ import {
   Error
 } from '../../assets/styles/text';
 
-const RatingInformation = ({ handleCreateQuote, error }) => {
+const RatingInformation = ({ handleCreateQuote, apiError, setApiError }) => {
   const [nameState, setNameState] = useState({
     firstName: '',
     lastName: ''
@@ -29,7 +29,8 @@ const RatingInformation = ({ handleCreateQuote, error }) => {
   const [formErrors, setFormErrors] = useState([]);
 
   const handleInputChange = (type, key, value) => {
-    setFormErrors('');
+    setFormErrors([]);
+    setApiError('');
 
     if (type === 'name') {
       setNameState({
@@ -46,11 +47,12 @@ const RatingInformation = ({ handleCreateQuote, error }) => {
 
   const validateForm = () => {
     let errors = [];
-    if (!addressState.line1) errors.push('Please enter a street address');
-    if (!addressState.city) errors.push('Please enter a city');
-    if (!addressState.region) errors.push('Please enter a region');
-    if (!addressState.postal) errors.push('Please enter a postal code');
-    if (!nameState.firstName) errors.push('Please enter your first name');
+    if (!addressState.line1) errors.push({ key: 'line1', value: 'Please enter a street address' });
+    if (!addressState.city) errors.push({ key: 'city', value: 'Please enter a city' });
+    if (!addressState.region) errors.push({ key: 'region', value: 'Please enter a region' });
+    if (!addressState.postal) errors.push({ key: 'postal', value: 'Please enter a postal code' });
+    if (!nameState.firstName) errors.push({ key: 'firstName', value: 'Please enter your first name' });
+    if (!nameState.lastName) errors.push({ key: 'lastName', value: 'Please enter your last name' });
 
     setFormErrors(errors);
 
@@ -80,6 +82,11 @@ const RatingInformation = ({ handleCreateQuote, error }) => {
     }
   }
 
+  const getError = (key) => {
+    let inputError = formErrors.find((e) => e.key === key);
+    return inputError ? inputError.value : null;
+  };
+
   return (
     <Container>
       <Title>Welcome to Rocket Insurance</Title>
@@ -90,42 +97,45 @@ const RatingInformation = ({ handleCreateQuote, error }) => {
           value={nameState.firstName}
           onChange={(e) => handleInputChange('name', 'firstName', e.target.value)}
         />
+        <Error>{getError('firstName')}</Error>
         <Input 
           placeholder='Last Name'
           value={nameState.lastName}
           onChange={(e) => handleInputChange('name', 'lastName', e.target.value)}
         />
+        <Error>{getError('lastName')}</Error>
         <Input 
           placeholder='Address Line 1'
           value={addressState.line1}
           onChange={(e) => handleInputChange('address', 'line1', e.target.value)}
         />
+        <Error>{getError('line1')}</Error>
         <Input 
           placeholder='Address Line 2'
           value={addressState.line2}
           onChange={(e) => handleInputChange('address', 'line2', e.target.value)}
         />
+        <Error />
         <Input 
           placeholder='City'
           value={addressState.city}
           onChange={(e) => handleInputChange('address', 'city', e.target.value)}
         />
+        <Error>{getError('city')}</Error>
         <Input 
           placeholder='Region'
           value={addressState.region}
           onChange={(e) => handleInputChange('address', 'region', e.target.value)}
         />
+        <Error>{getError('region')}</Error>
         <Input 
           placeholder='Postal Code'
           value={addressState.postal}
           onChange={(e) => handleInputChange('address', 'postal', e.target.value)}
         />
+        <Error>{getError('postal')}</Error>
         <SubmitButton onClick={handleSubmit}/>
-        { error ? <Error>{error}</Error> : null }
-        { formErrors.length ? 
-          formErrors.map((error, index) => {
-            return <Error key={`error-${index}`}>{error}</Error>
-          }) : null }
+        { apiError ? <Error>{apiError}</Error> : null }
       </Form>
     </Container>
   )

@@ -24,7 +24,7 @@ const Dropdown = ({ onChange, options }) => {
   return (
     <Select onChange={onChange}>
       {options.map((option, index) => {
-        return <option key={`option-${index}`} value={option}>{option}</option>
+        return <option key={`option-${index}`} value={option}>${option.toLocaleString()}</option>
       })}
     </Select>
   )

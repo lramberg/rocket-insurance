@@ -50,13 +50,20 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
     if (deductibleSelection && asteroidCollisionSelection) handleUpdateQuote(data);   
   }, [deductibleSelection, asteroidCollisionSelection]);
 
+  const formatPremium = (value) => {
+    let premium = value.toFixed(2);
+    const parts = premium.split('.');
+    const wholeNumber = parseInt(parts[0]).toLocaleString();
+    return `$${wholeNumber}.${parts[1]}`;
+  };
+
   return (
     <Container>
       <Title>Quote Overview</Title>
       { !quote.quoteId && <Subtitle>Oops something went wrong. Please try again.</Subtitle>}
       { quote.variable_options && (
         <>
-        <Subtitle>Premium: ${quote.premium}</Subtitle>
+        <Subtitle>Premium: {formatPremium(quote.premium)}</Subtitle>
         <QuoteForm>
           <Section>
             <Label>{quote.variable_options.deductible.title}</Label>

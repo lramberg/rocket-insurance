@@ -60,9 +60,10 @@ export const Description = styled(Paragraph)`
 `;
 
 export const Error = styled(Paragraph)`
+  height: 1vw;
   font-size: 1vw;
   color: ${color.RED};
-  margin-top: 0.5vw;
+  margin: 0;
 
   @media ${media.mobile} {
     font-size: 4vw;

@@ -14,6 +14,7 @@ const Button = styled.button`
   padding: 10px;
   width: 100%;
   margin-top: 3vw;
+  margin-bottom: 1vw;
 
   @media ${media.mobile} {
     font-size: 6vw;
