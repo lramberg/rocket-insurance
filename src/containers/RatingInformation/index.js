@@ -29,6 +29,22 @@ const RatingInformation = ({ handleCreateQuote }) => {
   });
   const [error, setError] = useState('');
 
+  const handleInputChange = (type, key, value) => {
+    setError('');
+
+    if (type === 'name') {
+      setNameState({
+        ...nameState,
+        [key]: value
+      })
+    } else {
+      setAddressState({
+        ...addressState,
+        [key]: value
+      })
+    }
+  }
+
   const handleSubmit = () => {
     if (
       !addressState.line1 ||
@@ -65,72 +81,37 @@ const RatingInformation = ({ handleCreateQuote }) => {
         <Input 
           placeholder='First Name'
           value={nameState.firstName}
-          onChange={(e) => {
-            setNameState({
-              ...nameState,
-              firstName: e.target.value
-            })
-          }}
+          onChange={(e) => handleInputChange('name', 'firstName', e.target.value)}
         />
         <Input 
           placeholder='Last Name'
           value={nameState.lastName}
-          onChange={(e) => {
-            setNameState({
-              ...nameState,
-              lastName: e.target.value
-            })
-          }}
+          onChange={(e) => handleInputChange('name', 'lastName', e.target.value)}
         />
         <Input 
           placeholder='Address Line 1'
           value={addressState.line1}
-          onChange={(e) => {
-            setAddressState({
-              ...addressState,
-              line1: e.target.value
-            })
-          }}
+          onChange={(e) => handleInputChange('address', 'line1', e.target.value)}
         />
         <Input 
           placeholder='Address Line 2'
           value={addressState.line2}
-          onChange={(e) => {
-            setAddressState({
-              ...addressState,
-              line2: e.target.value
-            })
-          }}
+          onChange={(e) => handleInputChange('address', 'line2', e.target.value)}
         />
         <Input 
           placeholder='City'
           value={addressState.city}
-          onChange={(e) => {
-            setAddressState({
-              ...addressState,
-              city: e.target.value
-            })
-          }}
+          onChange={(e) => handleInputChange('address', 'city', e.target.value)}
         />
         <Input 
           placeholder='Region'
           value={addressState.region}
-          onChange={(e) => {
-            setAddressState({
-              ...addressState,
-              region: e.target.value
-            })
-          }}
+          onChange={(e) => handleInputChange('address', 'region', e.target.value)}
         />
         <Input 
           placeholder='Postal'
           value={addressState.postal}
-          onChange={(e) => {
-            setAddressState({
-              ...addressState,
-              postal: e.target.value
-            })
-          }}
+          onChange={(e) => handleInputChange('address', 'postal', e.target.value)}
         />
         <SubmitButton onClick={handleSubmit}/>
         { error ? <Error>{error}</Error> : null }
