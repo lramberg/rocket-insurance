@@ -57,6 +57,11 @@ export const Paragraph = styled.p`
 export const Description = styled(Paragraph)`
   width: 60%;
   color: ${color.LIGHT_PINK};
+
+  @media ${media.mobile} {
+    font-size: 4vw;
+    width: 100%;
+  }
 `;
 
 export const Error = styled(Paragraph)`
@@ -66,7 +71,7 @@ export const Error = styled(Paragraph)`
   margin: 0;
 
   @media ${media.mobile} {
-    font-size: 4vw;
-    margin-top: 3vw;
+    height: 3vw;
+    font-size: 3vw;
   }
 `;

@@ -19,6 +19,7 @@ const Button = styled.button`
   @media ${media.mobile} {
     font-size: 6vw;
     margin-top: 6vw;
+    margin-bottom: 2vw;
   }
 `;
 
