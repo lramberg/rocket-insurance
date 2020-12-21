@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import Input from '../../components/Input';
 import SubmitButton from '../../components/SubmitButton';
@@ -15,8 +14,7 @@ import {
   Error
 } from '../../assets/styles/text';
 
-const RatingInformation = ({ handleCreateQuote }) => {
-  const history = useHistory();
+const RatingInformation = ({ handleCreateQuote, error }) => {
   const [nameState, setNameState] = useState({
     firstName: '',
     lastName: ''
@@ -28,10 +26,10 @@ const RatingInformation = ({ handleCreateQuote }) => {
     region: '',
     postal: ''
   });
-  const [error, setError] = useState([]);
+  const [formErrors, setFormErrors] = useState([]);
 
   const handleInputChange = (type, key, value) => {
-    setError('');
+    setFormErrors('');
 
     if (type === 'name') {
       setNameState({
@@ -54,7 +52,7 @@ const RatingInformation = ({ handleCreateQuote }) => {
     if (!addressState.postal) errors.push('Please enter a postal code');
     if (!nameState.firstName) errors.push('Please enter your first name');
 
-    setError(errors);
+    setFormErrors(errors);
 
     if (errors.length) {
       return false;
@@ -79,7 +77,6 @@ const RatingInformation = ({ handleCreateQuote }) => {
     }
     if (formIsValid) {
       handleCreateQuote(data);
-      history.push('/quote-overview');
     }
   }
 
@@ -124,8 +121,9 @@ const RatingInformation = ({ handleCreateQuote }) => {
           onChange={(e) => handleInputChange('address', 'postal', e.target.value)}
         />
         <SubmitButton onClick={handleSubmit}/>
-        { error.length ? 
-          error.map((error, index) => {
+        { error ? <Error>{error}</Error> : null }
+        { formErrors.length ? 
+          formErrors.map((error, index) => {
             return <Error key={`error-${index}`}>{error}</Error>
           }) : null }
       </Form>

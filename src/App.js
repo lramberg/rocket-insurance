@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import RatingInformation from './containers/RatingInformation';
@@ -9,6 +9,7 @@ const height = window.innerHeight;
 const baseURL = 'https://fed-challenge-api.sure.now.sh/api/v1/quotes';
 
 function App() {
+  const history = useHistory();
   const [quote, setQuote] = useState({});
   const [error, setError] = useState(false);
 
@@ -16,10 +17,11 @@ function App() {
     try {
       const quoteResponse = await axios.post(baseURL, data);
       setQuote(quoteResponse.data.quote);
+      if (quoteResponse.data) history.push('/quote-overview');
       return quoteResponse;
     } catch (error) {
       console.log('error', error);
-      setError(true);
+      setError('Oops something went wrong, please try again');
     }
   }
 
@@ -29,7 +31,7 @@ function App() {
       setQuote(updatedQuote.data.quote);
     } catch (error) {
       console.log('error', error);
-      setError(true);
+      setError('Oops something went wrong, please try again');
     }
   }
 
@@ -37,10 +39,10 @@ function App() {
     <div style={{ minHeight: height, backgroundColor: '#0D021A' }}>
       <Switch>
         <Route exact path='/'>
-          <RatingInformation handleCreateQuote={handleCreateQuote} />
+          <RatingInformation handleCreateQuote={handleCreateQuote} error={error} />
         </Route>
         <Route exact path='/quote-overview'>
-          <QuoteOverview quote={quote} handleUpdateQuote={handleUpdateQuote} error={error} />
+          <QuoteOverview quote={quote} handleUpdateQuote={handleUpdateQuote} />
         </Route>
       </Switch>
     </div>

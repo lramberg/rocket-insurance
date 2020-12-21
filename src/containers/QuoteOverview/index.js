@@ -15,9 +15,13 @@ import {
   Paragraph
 } from '../../assets/styles/text';
 
-const QuoteOverview = ({ quote, handleUpdateQuote, error }) => {
+const QuoteOverview = ({ quote, handleUpdateQuote }) => {
   const [deductibleSelection, setDeductibleSelection] = useState(0);
   const [asteroidCollisionSelection, setAsteroidCollisionSelection] = useState(0);
+
+  useEffect(() => {
+    window.onbeforeunload = () => true;
+  });
 
   // set the default values once the initial quote is received 
   useEffect(() => {
@@ -49,8 +53,8 @@ const QuoteOverview = ({ quote, handleUpdateQuote, error }) => {
   return (
     <Container>
       <Title>Quote Overview</Title>
-      { error && ( <Subtitle>Oops, something went wrong. Please try again.</Subtitle> ) }
-      { quote.variable_options && !error && (
+      { !quote.quoteId && <Subtitle>Oops something went wrong. Please try again.</Subtitle>}
+      { quote.variable_options && (
         <>
         <Subtitle>Premium: ${quote.premium}</Subtitle>
         <QuoteForm>
