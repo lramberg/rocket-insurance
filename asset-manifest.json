@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/rocket-insurance/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/rocket-insurance/static/js/main.6172f3c4.chunk.js",
+    "main.js.map": "/rocket-insurance/static/js/main.6172f3c4.chunk.js.map",
+    "runtime-main.js": "/rocket-insurance/static/js/runtime-main.d9599553.js",
+    "runtime-main.js.map": "/rocket-insurance/static/js/runtime-main.d9599553.js.map",
+    "static/js/2.3f3fd7be.chunk.js": "/rocket-insurance/static/js/2.3f3fd7be.chunk.js",
+    "static/js/2.3f3fd7be.chunk.js.map": "/rocket-insurance/static/js/2.3f3fd7be.chunk.js.map",
+    "static/js/3.d50b9e37.chunk.js": "/rocket-insurance/static/js/3.d50b9e37.chunk.js",
+    "static/js/3.d50b9e37.chunk.js.map": "/rocket-insurance/static/js/3.d50b9e37.chunk.js.map",
+    "index.html": "/rocket-insurance/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/rocket-insurance/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.3f3fd7be.chunk.js.LICENSE.txt": "/rocket-insurance/static/js/2.3f3fd7be.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d9599553.js",
+    "static/js/2.3f3fd7be.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.6172f3c4.chunk.js"
+  ]
+}
