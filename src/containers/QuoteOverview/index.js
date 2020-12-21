@@ -2,7 +2,20 @@ import React, { useState, useEffect } from 'react';
 
 import Dropdown from '../../components/Dropdown';
 
-const QuoteOverview = ({ quote, handleUpdateQuote }) => {
+import {
+  Container,
+  QuoteForm,
+  Section
+} from '../../assets/styles/layout';
+
+import {
+  Title,
+  Subtitle,
+  Label,
+  Paragraph
+} from '../../assets/styles/text';
+
+const QuoteOverview = ({ quote, handleUpdateQuote, error }) => {
   const [deductibleSelection, setDeductibleSelection] = useState(0);
   const [asteroidCollisionSelection, setAsteroidCollisionSelection] = useState(0);
 
@@ -34,34 +47,36 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
   }, [deductibleSelection, asteroidCollisionSelection]);
 
   return (
-    <div>
-      <h1>Quote Overview</h1>
+    <Container>
+      <Title>Quote Overview</Title>
       { quote.variable_options && (
         <>
-        <h2>Premium: {quote.premium}</h2>
-        <div>
-          <h3>{quote.variable_options.deductible.title}</h3>
-          <p>{quote.variable_options.deductible.description}</p>
-          <Dropdown
-            options={quote.variable_options.deductible.values}
-            onChange={(e) => {
-              setDeductibleSelection(parseInt(e.target.value));
-            }
-            }/>
-        </div>
-        <div>
-          <h3>{quote.variable_options.asteroid_collision.title}</h3>
-          <p>{quote.variable_options.asteroid_collision.description}</p>
-          <Dropdown
-            options={quote.variable_options.asteroid_collision.values}
-            onChange={(e) => {
-              setAsteroidCollisionSelection(parseInt(e.target.value));
-            }}
-          />
-        </div>
+        <Subtitle>Premium: ${quote.premium}</Subtitle>
+        <QuoteForm>
+          <Section>
+            <Label>{quote.variable_options.deductible.title}</Label>
+            <Paragraph>{quote.variable_options.deductible.description}</Paragraph>
+            <Dropdown
+              options={quote.variable_options.deductible.values}
+              onChange={(e) => {
+                setDeductibleSelection(parseInt(e.target.value));
+              }
+              }/>
+          </Section>
+          <Section>
+            <Label>{quote.variable_options.asteroid_collision.title}</Label>
+            <Paragraph>{quote.variable_options.asteroid_collision.description}</Paragraph>
+            <Dropdown
+              options={quote.variable_options.asteroid_collision.values}
+              onChange={(e) => {
+                setAsteroidCollisionSelection(parseInt(e.target.value));
+              }}
+            />
+          </Section>
+        </QuoteForm>
         </>
       )}
-    </div>
+    </Container>
   )
 }
 

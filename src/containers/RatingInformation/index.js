@@ -4,6 +4,16 @@ import { useHistory } from 'react-router-dom';
 import Input from '../../components/Input';
 import SubmitButton from '../../components/SubmitButton';
 
+import {
+  Container,
+  Form
+} from '../../assets/styles/layout';
+
+import {
+  Title,
+  Error
+} from '../../assets/styles/text';
+
 const RatingInformation = ({ handleCreateQuote }) => {
   const history = useHistory();
   const [nameState, setNameState] = useState({
@@ -16,9 +26,23 @@ const RatingInformation = ({ handleCreateQuote }) => {
     city: '',
     region: '',
     postal: ''
-  })
+  });
+  const [error, setError] = useState('');
 
   const handleSubmit = () => {
+    if (
+      !addressState.line1 ||
+      !addressState.line2 ||
+      !addressState.city ||
+      !addressState.region ||
+      !addressState.postal ||
+      !nameState.firstName ||
+      !nameState.lastName
+    ) {
+      setError('Please fill in all fields to get a quote');
+      return;
+    }
+
     const data = {
       first_name: nameState.firstName,
       last_name: nameState.lastName,
@@ -35,9 +59,9 @@ const RatingInformation = ({ handleCreateQuote }) => {
   }
 
   return (
-    <div>
-      <h1>Rocket Insurance</h1>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <Container>
+      <Title>Welcome to Rocket Insurance</Title>
+      <Form style={{ display: 'flex', flexDirection: 'column' }}>
         <Input 
           placeholder='First Name'
           value={nameState.firstName}
@@ -109,8 +133,9 @@ const RatingInformation = ({ handleCreateQuote }) => {
           }}
         />
         <SubmitButton onClick={handleSubmit}/>
-      </div>
-    </div>
+        { error ? <Error>{error}</Error> : null }
+      </Form>
+    </Container>
   )
 }
 
