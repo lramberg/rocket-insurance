@@ -1,11 +1,21 @@
-import { queryByPlaceholderText } from '@testing-library/react';
 import React, { useState, useEffect } from 'react';
 
 import Dropdown from '../../components/Dropdown';
 
 const QuoteOverview = ({ quote, handleUpdateQuote }) => {
-  const [deductibleSelection, setDeductibleSelection] = useState(quote.variable_selections?.deductible);
-  const [asteroidCollisionSelection, setAsteroidCollisionSelection] = useState(quote.variable_selections?.asteroid_collision);
+  const [deductibleSelection, setDeductibleSelection] = useState(0);
+  const [asteroidCollisionSelection, setAsteroidCollisionSelection] = useState(0);
+
+  // set the default values once the initial quote is received 
+  useEffect(() => {
+    if (quote.variable_selections && 
+        quote.variable_selections.asteroid_collision !== asteroidCollisionSelection &&
+        quote.variable_selections.deductible !== deductibleSelection
+      ) {
+      setAsteroidCollisionSelection(quote.variable_selections.asteroid_collision);
+      setDeductibleSelection(quote.variable_selections.deductible);
+    }
+  }, [quote]);
 
   useEffect(() => {
     const data = {
@@ -14,15 +24,13 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
         rating_address: quote.rating_address,
         policy_holder: quote.policy_holder,
         variable_selections: {
-          deductible: parseInt(deductibleSelection),
-          asteroid_collision: parseInt(asteroidCollisionSelection)
+          deductible: deductibleSelection,
+          asteroid_collision: asteroidCollisionSelection
         }
       }
     }
 
-    if (quote.quoteId) {
-      handleUpdateQuote(data);
-    }
+    if (deductibleSelection && asteroidCollisionSelection) handleUpdateQuote(data);   
   }, [deductibleSelection, asteroidCollisionSelection]);
 
   return (
@@ -37,7 +45,7 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
           <Dropdown
             options={quote.variable_options.deductible.values}
             onChange={(e) => {
-              setDeductibleSelection(e.target.value);
+              setDeductibleSelection(parseInt(e.target.value));
             }
             }/>
         </div>
@@ -47,7 +55,7 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
           <Dropdown
             options={quote.variable_options.asteroid_collision.values}
             onChange={(e) => {
-              setAsteroidCollisionSelection(e.target.value);
+              setAsteroidCollisionSelection(parseInt(e.target.value));
             }}
           />
         </div>
