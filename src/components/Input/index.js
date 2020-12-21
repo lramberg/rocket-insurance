@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Input = (props) => {
+const Input = ({ placeholder, onChange }) => {
   return (
-    <input  type='text' placeholder={props.placeholder} onChange={props.onChange} />
+    <input  type='text' placeholder={placeholder} onChange={onChange} />
   )
 }
 

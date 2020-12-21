@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Input from '../../components/Input';
 import SubmitButton from '../../components/SubmitButton';
 
-const RatingInformation = (props) => {
+const RatingInformation = ({ handleCreateQuote }) => {
   const history = useHistory();
   const [nameState, setNameState] = useState({
     firstName: '',
@@ -30,7 +30,7 @@ const RatingInformation = (props) => {
         postal: addressState.postal
       }
     }
-    props.handleCreateQuote(data);
+    handleCreateQuote(data);
     history.push('/quote-overview');
   }
 
