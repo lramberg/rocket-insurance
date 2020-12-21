@@ -3,7 +3,6 @@ import { color } from './color';
 import { media } from './breakpoints';
 
 export const Container = styled.div`
-  background-color: ${color.DEEP_PURPLE};
   padding: 5vw;
   display: flex;
   flex-direction: column;

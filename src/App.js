@@ -10,7 +10,7 @@ const baseURL = 'https://fed-challenge-api.sure.now.sh/api/v1/quotes';
 
 function App() {
   const [quote, setQuote] = useState({});
-  const [error, setError] = useState('');
+  const [error, setError] = useState(false);
 
   const handleCreateQuote = async (data) => {
     try {
@@ -19,7 +19,7 @@ function App() {
       return quoteResponse;
     } catch (error) {
       console.log('error', error);
-      setError('Oops, something went wrong. Please try again.');
+      setError(true);
     }
   }
 
@@ -29,12 +29,12 @@ function App() {
       setQuote(updatedQuote.data.quote);
     } catch (error) {
       console.log('error', error);
-      setError('Oops, something went wrong. Please try again.');
+      setError(true);
     }
   }
 
   return (
-    <div style={{ height: height, backgroundColor: '#0D021A' }}>
+    <div style={{ minHeight: height, backgroundColor: '#0D021A' }}>
       <Switch>
         <Route exact path='/'>
           <RatingInformation handleCreateQuote={handleCreateQuote} />

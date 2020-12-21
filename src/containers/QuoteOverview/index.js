@@ -49,7 +49,8 @@ const QuoteOverview = ({ quote, handleUpdateQuote, error }) => {
   return (
     <Container>
       <Title>Quote Overview</Title>
-      { quote.variable_options && (
+      { error && ( <Subtitle>Oops, something went wrong. Please try again.</Subtitle> ) }
+      { quote.variable_options && !error && (
         <>
         <Subtitle>Premium: ${quote.premium}</Subtitle>
         <QuoteForm>

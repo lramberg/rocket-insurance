@@ -20,7 +20,7 @@ export const Subtitle = styled.h2`
   font-size: 3vw;
   font-weight: 400;
   color: ${color.LIGHT_PINK};
-  margin: 0;
+  margin-top: 4vw;
 
   @media ${media.mobile} {
     font-size: 8vw;
@@ -54,9 +54,15 @@ export const Paragraph = styled.p`
   }
 `;
 
+export const Description = styled(Paragraph)`
+  width: 60%;
+  color: ${color.LIGHT_PINK};
+`;
+
 export const Error = styled(Paragraph)`
+  font-size: 1vw;
   color: ${color.RED};
-  margin-top: 1.5vw;
+  margin-top: 0.5vw;
 
   @media ${media.mobile} {
     font-size: 4vw;

@@ -11,6 +11,7 @@ import {
 
 import {
   Title,
+  Description,
   Error
 } from '../../assets/styles/text';
 
@@ -27,7 +28,7 @@ const RatingInformation = ({ handleCreateQuote }) => {
     region: '',
     postal: ''
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState([]);
 
   const handleInputChange = (type, key, value) => {
     setError('');
@@ -45,19 +46,25 @@ const RatingInformation = ({ handleCreateQuote }) => {
     }
   }
 
-  const handleSubmit = () => {
-    if (
-      !addressState.line1 ||
-      !addressState.line2 ||
-      !addressState.city ||
-      !addressState.region ||
-      !addressState.postal ||
-      !nameState.firstName ||
-      !nameState.lastName
-    ) {
-      setError('Please fill in all fields to get a quote');
-      return;
+  const validateForm = () => {
+    let errors = [];
+    if (!addressState.line1) errors.push('Please enter a street address');
+    if (!addressState.city) errors.push('Please enter a city');
+    if (!addressState.region) errors.push('Please enter a region');
+    if (!addressState.postal) errors.push('Please enter a postal code');
+    if (!nameState.firstName) errors.push('Please enter your first name');
+
+    setError(errors);
+
+    if (errors.length) {
+      return false;
+    } else {
+      return true;
     }
+  }
+
+  const handleSubmit = () => {
+    const formIsValid = validateForm();
 
     const data = {
       first_name: nameState.firstName,
@@ -70,13 +77,16 @@ const RatingInformation = ({ handleCreateQuote }) => {
         postal: addressState.postal
       }
     }
-    handleCreateQuote(data);
-    history.push('/quote-overview');
+    if (formIsValid) {
+      handleCreateQuote(data);
+      history.push('/quote-overview');
+    }
   }
 
   return (
     <Container>
       <Title>Welcome to Rocket Insurance</Title>
+      <Description>As interplanetary travel becomes mainstream, we're excited to offer rocket owners comprehensive coverage options to let them fly through space worry-free.</Description>
       <Form style={{ display: 'flex', flexDirection: 'column' }}>
         <Input 
           placeholder='First Name'
@@ -109,12 +119,15 @@ const RatingInformation = ({ handleCreateQuote }) => {
           onChange={(e) => handleInputChange('address', 'region', e.target.value)}
         />
         <Input 
-          placeholder='Postal'
+          placeholder='Postal Code'
           value={addressState.postal}
           onChange={(e) => handleInputChange('address', 'postal', e.target.value)}
         />
         <SubmitButton onClick={handleSubmit}/>
-        { error ? <Error>{error}</Error> : null }
+        { error.length ? 
+          error.map((error, index) => {
+            return <Error key={`error-${index}`}>{error}</Error>
+          }) : null }
       </Form>
     </Container>
   )
