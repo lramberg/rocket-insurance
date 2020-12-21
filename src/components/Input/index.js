@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { color } from '../../assets/styles/color';
+import { media } from '../../assets/styles/breakpoints';
 
 const StyledInput = styled.input`
   margin-bottom: 1vw;
-  padding: 1vw;
+  padding: 1vw 0;
   border: 0;
   border-bottom: 1px solid ${color.ICE_BLUE};
   background-color: transparent;
@@ -13,6 +14,16 @@ const StyledInput = styled.input`
   color: ${color.WHITE};
   width: 100%;
   box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+
+  @media ${media.mobile} {
+    font-size: 5vw;
+    padding: 2vw 0;
+    margin-bottom: 3vw;
+  }
 `;
 
 const Input = ({ placeholder, onChange }) => {

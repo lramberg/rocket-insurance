@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { color } from '../../assets/styles/color';
+import { media } from '../../assets/styles/breakpoints';
 
 const Select = styled.select`
   width: 100%;
@@ -11,7 +12,12 @@ const Select = styled.select`
   border-radius: 5px;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5vw;
-  color: ${color.DEEP_PURPLE}
+  color: ${color.DEEP_PURPLE};
+
+  @media ${media.mobile} {
+    font-size: 4vw;
+    margin-top: 10px;
+  }
 `;
 
 const Dropdown = ({ onChange, options }) => {
