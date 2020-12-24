@@ -12,7 +12,8 @@ import {
   Title,
   Subtitle,
   Label,
-  Paragraph
+  Paragraph,
+  Error
 } from '../../assets/styles/text';
 
 const QuoteOverview = ({ quote, handleUpdateQuote }) => {
@@ -59,7 +60,7 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
 
   return (
     <Container>
-      <Title>Quote Overview</Title>
+      <Title>Quote #{quote.quoteId}</Title>
       { !quote.quoteId && <Subtitle>Oops something went wrong. Please try again.</Subtitle>}
       { quote.variable_options && (
         <>
@@ -88,6 +89,7 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
         </QuoteForm>
         </>
       )}
+      <Error>{}</Error>
     </Container>
   )
 }

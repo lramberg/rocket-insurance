@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import './App.css';
 
 import RatingInformation from './containers/RatingInformation';
 import QuoteOverview from './containers/QuoteOverview';
@@ -21,8 +22,7 @@ function App() {
       return quoteResponse;
     } catch (error) {
       const responseErrors = Object.assign({}, error.response.data.errors);
-      console.log('error', responseErrors);
-      setApiError('Please enter a valid postal code.');
+      setApiError(getErrorMessage(responseErrors));
     }
   }
 
@@ -31,13 +31,23 @@ function App() {
       const updatedQuote = await axios.put(`${baseURL}/${quote.quoteId}`, data);
       setQuote(updatedQuote.data.quote);
     } catch (error) {
-      console.log('error', error);
       setApiError('Oops something went wrong, please try again');
     }
   }
 
+  const getErrorMessage = (error) => {
+    let message = 'Oops something went wrong, please try again';
+    if (error.address) {
+      const keys = Object.keys(error.address);
+      if (keys[keys.length - 1] === 'postal') keys[keys.length - 1] = 'postal code';
+      const joined = keys.join(', ');
+      message = `please enter a vaild ${joined}.`;
+    }
+    return message;
+  }
+
   return (
-    <div style={{ minHeight: height, backgroundColor: '#0D021A' }}>
+    <div className='App' style={{ minHeight: height }}>
       <Switch>
         <Route exact path='/'>
           <RatingInformation handleCreateQuote={handleCreateQuote} apiError={apiError} setApiError={setApiError} />
