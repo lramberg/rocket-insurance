@@ -6,7 +6,7 @@ import RegionSelect from '../../components/RegionSelect';
 import { states } from '../../library/states';
 
 import {
-  Container,
+  LandingPageContainer,
   Form
 } from '../../assets/styles/layout';
 
@@ -90,7 +90,7 @@ const RatingInformation = ({ handleCreateQuote, apiError, setApiError }) => {
   };
 
   return (
-    <Container>
+    <LandingPageContainer>
       <Title>Welcome to Rocket Insurance</Title>
       <Description>As interplanetary travel becomes mainstream, we're excited to offer rocket owners comprehensive coverage options to let them fly through space worry-free.</Description>
       <Form style={{ display: 'flex', flexDirection: 'column' }}>
@@ -143,7 +143,7 @@ const RatingInformation = ({ handleCreateQuote, apiError, setApiError }) => {
         <SubmitButton onClick={handleSubmit} text={'Get A Quote'}/>
         { apiError ? <Error>{apiError}</Error> : null }
       </Form>
-    </Container>
+    </LandingPageContainer>
   )
 }
 

@@ -29,7 +29,7 @@ const Select = styled.select`
 const RegionSelect = ({ onChange, options }) => {
   return (
     <Select onChange={onChange}>
-      <option value=''>Region</option>
+      <option value=''>State</option>
       {options.map((option, index) => {
         return <option key={`region-${index}`} value={option}>{option}</option>
       })}
