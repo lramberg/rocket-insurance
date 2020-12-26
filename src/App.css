@@ -1,3 +1,5 @@
 .App {
-  background: linear-gradient(#0d021a, #211742, #3f2e78);
+  background-image:
+    linear-gradient(rgba(13, 2, 26, 0.5) 40%, rgba(33, 23, 66, 0.5), rgba(63, 46, 120, 0.5)),
+    url('https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
 }

@@ -19,6 +19,10 @@ const StyledInput = styled.input`
     outline: none;
   }
 
+  ::placeholder {
+    color: ${color.LIGHT_GRAY}
+  }
+
   @media ${media.mobile} {
     font-size: 5vw;
     padding: 2vw 0;

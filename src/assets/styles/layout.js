@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { color } from './color';
 import { media } from './breakpoints';
 
 export const Container = styled.div`
@@ -17,6 +16,9 @@ export const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.3);
+  padding: 1vw 3vw;
 
   @media ${media.mobile} {
     width: 90%;

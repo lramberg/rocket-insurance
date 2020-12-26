@@ -4,6 +4,7 @@ const DEEP_PURPLE = '#0D021A';
 const ICE_BLUE = '#EDFBFF';
 const LIGHT_PINK = '#FFD4DE';
 const RED = '#FF8C8C';
+const LIGHT_GRAY = '#CDCBD1';
 
 export const color = {
   WHITE,
@@ -11,5 +12,6 @@ export const color = {
   DEEP_PURPLE,
   ICE_BLUE,
   LIGHT_PINK,
-  RED
+  RED,
+  LIGHT_GRAY
 }

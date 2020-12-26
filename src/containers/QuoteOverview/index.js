@@ -66,7 +66,7 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
         <>
         <Subtitle>Premium: {formatPremium(quote.premium)}</Subtitle>
         <QuoteForm>
-          <Section>
+          <div>
             <Label>{quote.variable_options.deductible.title}</Label>
             <Paragraph>{quote.variable_options.deductible.description}</Paragraph>
             <Dropdown
@@ -75,7 +75,7 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
                 setDeductibleSelection(parseInt(e.target.value));
               }
               }/>
-          </Section>
+          </div>
           <Section>
             <Label>{quote.variable_options.asteroid_collision.title}</Label>
             <Paragraph>{quote.variable_options.asteroid_collision.description}</Paragraph>
@@ -89,7 +89,6 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
         </QuoteForm>
         </>
       )}
-      <Error>{}</Error>
     </Container>
   )
 }
