@@ -55,7 +55,7 @@ export const Paragraph = styled.p`
 `;
 
 export const Description = styled(Paragraph)`
-  width: 60%;
+  width: 50%;
   color: ${color.LIGHT_PINK};
 
   @media ${media.mobile} {

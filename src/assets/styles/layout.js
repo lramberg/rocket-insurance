@@ -16,13 +16,15 @@ export const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.4);
   padding: 1vw 3vw;
 
   @media ${media.mobile} {
     width: 90%;
     margin-top: 6vw;
+    background-color: transparent;
+    box-shadow: none;
   }
 `;
 
@@ -36,9 +38,9 @@ export const QuoteForm = styled(Form)`
 `;
 
 export const Section = styled.div`
-  margin-top: 3vw;
+  margin: 3vw 0 1vw;
 
   @media ${media.mobile} {
-    margin-top: 10vw;
+    margin: 10vw 0 3vw;
   }
 `;

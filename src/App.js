@@ -41,7 +41,7 @@ function App() {
       const keys = Object.keys(error.address);
       if (keys[keys.length - 1] === 'postal') keys[keys.length - 1] = 'postal code';
       const joined = keys.join(', ');
-      message = `please enter a vaild ${joined}.`;
+      message = `Please enter a vaild ${joined}`;
     }
     return message;
   }

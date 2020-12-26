@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import Input from '../../components/Input';
 import SubmitButton from '../../components/SubmitButton';
+import RegionSelect from '../../components/RegionSelect';
+import { states } from '../../library/states';
 
 import {
   Container,
@@ -49,7 +51,7 @@ const RatingInformation = ({ handleCreateQuote, apiError, setApiError }) => {
     let errors = [];
     if (!addressState.line1) errors.push({ key: 'line1', value: 'Please enter a street address' });
     if (!addressState.city) errors.push({ key: 'city', value: 'Please enter a city' });
-    if (!addressState.region) errors.push({ key: 'region', value: 'Please enter a region' });
+    if (!addressState.region) errors.push({ key: 'region', value: 'Please select a region' });
     if (!addressState.postal) errors.push({ key: 'postal', value: 'Please enter a postal code' });
     if (!nameState.firstName) errors.push({ key: 'firstName', value: 'Please enter your first name' });
     if (!nameState.lastName) errors.push({ key: 'lastName', value: 'Please enter your last name' });
@@ -107,23 +109,26 @@ const RatingInformation = ({ handleCreateQuote, apiError, setApiError }) => {
         <Input 
           placeholder='Address Line 1'
           value={addressState.line1}
+          maxLength={40}
           onChange={(e) => handleInputChange('address', 'line1', e.target.value)}
         />
         <Error>{getError('line1')}</Error>
         <Input 
           placeholder='Address Line 2'
           value={addressState.line2}
+          maxLength={40}
           onChange={(e) => handleInputChange('address', 'line2', e.target.value)}
         />
         <Error />
         <Input 
           placeholder='City'
           value={addressState.city}
+          maxLength={20}
           onChange={(e) => handleInputChange('address', 'city', e.target.value)}
         />
         <Error>{getError('city')}</Error>
-        <Input 
-          placeholder='Region'
+        <RegionSelect 
+          options={states}
           value={addressState.region}
           onChange={(e) => handleInputChange('address', 'region', e.target.value)}
         />
@@ -131,10 +136,11 @@ const RatingInformation = ({ handleCreateQuote, apiError, setApiError }) => {
         <Input 
           placeholder='Postal Code'
           value={addressState.postal}
+          maxLength={5}
           onChange={(e) => handleInputChange('address', 'postal', e.target.value)}
         />
         <Error>{getError('postal')}</Error>
-        <SubmitButton onClick={handleSubmit}/>
+        <SubmitButton onClick={handleSubmit} text={'Get A Quote'}/>
         { apiError ? <Error>{apiError}</Error> : null }
       </Form>
     </Container>

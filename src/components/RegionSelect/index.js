@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { color } from '../../assets/styles/color';
 import { media } from '../../assets/styles/breakpoints';
 
-const StyledInput = styled.input`
+const Select = styled.select`
   margin-bottom: 1vw;
   padding: 1vw 0;
   border: 0;
@@ -19,16 +19,6 @@ const StyledInput = styled.input`
     outline: none;
   }
 
-  &::placeholder {
-    color: ${color.LIGHT_GRAY}
-  }
-
-  &::-webkit-inner-spin-button, 
-  &::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
-  }
-
   @media ${media.mobile} {
     font-size: 5vw;
     padding: 2vw 0;
@@ -36,15 +26,15 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({ placeholder, onChange, type, maxLength }) => {
+const RegionSelect = ({ onChange, options }) => {
   return (
-    <StyledInput
-      type={type ?? 'text'}
-      placeholder={placeholder}
-      onChange={onChange}
-      maxLength={maxLength ?? 30} // would match character limit in the database 
-    />
+    <Select onChange={onChange}>
+      <option value=''>Region</option>
+      {options.map((option, index) => {
+        return <option key={`region-${index}`} value={option}>{option}</option>
+      })}
+    </Select>
   )
 }
 
-export default Input;
+export default RegionSelect;

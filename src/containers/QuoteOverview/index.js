@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Dropdown from '../../components/Dropdown';
+import SubmitButton from '../../components/SubmitButton';
 
 import {
   Container,
@@ -12,13 +13,13 @@ import {
   Title,
   Subtitle,
   Label,
-  Paragraph,
-  Error
+  Paragraph
 } from '../../assets/styles/text';
 
 const QuoteOverview = ({ quote, handleUpdateQuote }) => {
   const [deductibleSelection, setDeductibleSelection] = useState(0);
   const [asteroidCollisionSelection, setAsteroidCollisionSelection] = useState(0);
+  const [checkedOut, setCheckedOut ] = useState(false);
 
   useEffect(() => {
     window.onbeforeunload = () => true;
@@ -61,8 +62,8 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
   return (
     <Container>
       <Title>Quote #{quote.quoteId}</Title>
-      { !quote.quoteId && <Subtitle>Oops something went wrong. Please try again.</Subtitle>}
-      { quote.variable_options && (
+      { !quote.quoteId && <Subtitle>Oops something went wrong, please try again</Subtitle>}
+      { quote.variable_options && !checkedOut && (
         <>
         <Subtitle>Premium: {formatPremium(quote.premium)}</Subtitle>
         <QuoteForm>
@@ -86,7 +87,14 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
               }}
             />
           </Section>
+          <SubmitButton text={'Checkout'} onClick={() => setCheckedOut(true)} />
         </QuoteForm>
+        </>
+      )}
+      { checkedOut && (
+        <>
+        <Subtitle>You have submitted your policy request.</Subtitle>
+        <Label>Save this quote number for your records.</Label>
         </>
       )}
     </Container>
