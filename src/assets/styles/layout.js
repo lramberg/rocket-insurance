@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { media } from './breakpoints';
+const height = window.innerHeight;
 
 export const Container = styled.div`
   padding: 5vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  min-height: ${height}px;
 `;
 
 export const LandingPageContainer = styled(Container)`
