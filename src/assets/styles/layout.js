@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const LandingPageContainer = styled(Container)`
-  background: linear-gradient(rgba(2, 6, 26, 0.4) 40%, rgba(35, 25, 80, 0.4), rgba(61, 34, 151, 0.4));
+  background: linear-gradient(rgba(2, 6, 26, 0.4) 40%, rgba(35, 25, 80, 0.4), rgba(61, 34, 151, 0.1));
 `;
 
 export const Form = styled.div`
