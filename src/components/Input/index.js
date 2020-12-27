@@ -5,7 +5,7 @@ import { media } from '../../assets/styles/breakpoints';
 
 const StyledInput = styled.input`
   margin-bottom: 1vw;
-  padding: 0 0 1vw;
+  padding: 3px 0 1vw;
   border: 0;
   border-bottom: 1px solid ${color.ICE_BLUE};
   border-radius: 0;
@@ -28,11 +28,6 @@ const StyledInput = styled.input`
   &::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
     margin: 0; 
-  }
-
-  &:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 20px ${color.DEEP_BLUE} inset !important;
-    -webkit-text-fill-color: ${color.BLUE_GRAY};
   }
 
   @media ${media.mobile} {
