@@ -19,7 +19,7 @@ export const Subtitle = styled.h2`
   font-family: 'Space Grotesk', sans-serif;
   font-size: 3vw;
   font-weight: 400;
-  color: ${color.LIGHT_PINK};
+  color: ${color.BLUE_GRAY};
   margin-top: 4vw;
 
   @media ${media.mobile} {
@@ -56,7 +56,7 @@ export const Paragraph = styled.p`
 
 export const Description = styled(Paragraph)`
   width: 50%;
-  color: ${color.LIGHT_PINK};
+  color: ${color.BLUE_GRAY};
 
   @media ${media.mobile} {
     font-size: 4vw;

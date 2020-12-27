@@ -1,6 +1,6 @@
 .App {
   background-image:
-    linear-gradient(rgba(13, 2, 26, 0.7) 40%, rgba(33, 23, 66, 0.7), rgba(63, 46, 120, 0.7)),
+    linear-gradient(rgba(2, 6, 26, 0.7) 40%, rgba(35, 25, 80, 0.7), rgba(61, 34, 151, 0.7)),
     url('https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   background-repeat: no-repeat;
   background-size: cover;

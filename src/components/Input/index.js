@@ -12,7 +12,7 @@ const StyledInput = styled.input`
   background-color: transparent;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5vw;
-  color: ${color.LIGHT_GRAY};
+  color: ${color.ICE_BLUE};
   width: 100%;
   box-sizing: border-box;
 
@@ -21,7 +21,7 @@ const StyledInput = styled.input`
   }
 
   &::placeholder {
-    color: ${color.LIGHT_GRAY}
+    color: ${color.ICE_BLUE}
   }
 
   &::-webkit-inner-spin-button, 
@@ -32,7 +32,7 @@ const StyledInput = styled.input`
 
   &:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 20px ${color.PURPLE} inset !important;
-    -webkit-text-fill-color: ${color.LIGHT_GRAY};
+    -webkit-text-fill-color: ${color.BLUE_GRAY};
   }
 
   @media ${media.mobile} {

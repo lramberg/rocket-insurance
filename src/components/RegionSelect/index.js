@@ -11,7 +11,7 @@ const Select = styled.select`
   background-color: transparent;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5vw;
-  color: ${color.LIGHT_GRAY};
+  color: ${color.ICE_BLUE};
   width: 100%;
   box-sizing: border-box;
   border-radius: 0;

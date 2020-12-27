@@ -5,7 +5,7 @@ import { media } from '../../assets/styles/breakpoints';
 
 const Select = styled.select`
   width: 100%;
-  background-color: ${color.LIGHT_PINK};
+  background-color: ${color.BLUE_GRAY};
   padding: 10px;
   margin-top: 5px;
   border: 0;
