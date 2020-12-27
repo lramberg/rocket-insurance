@@ -14,6 +14,10 @@ const Select = styled.select`
   font-size: 1.5vw;
   color: ${color.DEEP_PURPLE};
 
+  &:focus {
+    outline: none;
+  }
+
   @media ${media.mobile} {
     font-size: 16px;
     margin-top: 10px;
