@@ -30,7 +30,7 @@ const StyledInput = styled.input`
   }
 
   &:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 20px ${color.DEEP_PURPLE} inset !important;
+    -webkit-box-shadow: 0 0 0 20px rgba(0, 0, 0, 0) inset !important;
     -webkit-text-fill-color: ${color.LIGHT_GRAY};
   }
 
