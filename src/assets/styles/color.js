@@ -5,7 +5,7 @@ const ICE_BLUE = '#EDFBFF';
 const LIGHT_PINK = '#FFD4DE';
 const RED = '#FF8C8C';
 const LIGHT_GRAY = '#CDCBD1';
-const PURPLE = '#211742';
+const PURPLE = '#170C20';
 
 export const color = {
   WHITE,
