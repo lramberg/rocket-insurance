@@ -8,6 +8,7 @@ const StyledInput = styled.input`
   padding: 0 0 1vw;
   border: 0;
   border-bottom: 1px solid ${color.ICE_BLUE};
+  border-radius: 0;
   background-color: transparent;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5vw;

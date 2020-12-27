@@ -15,7 +15,7 @@ const Select = styled.select`
   color: ${color.DEEP_PURPLE};
 
   @media ${media.mobile} {
-    font-size: 4vw;
+    font-size: 16px;
     margin-top: 10px;
   }
 `;
