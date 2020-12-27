@@ -5,7 +5,7 @@ import { media } from '../../assets/styles/breakpoints';
 
 const Select = styled.select`
   margin-bottom: 1vw;
-  padding: 1vw 0;
+  padding: 0 0 1vw;
   border: 0;
   border-bottom: 1px solid ${color.ICE_BLUE};
   background-color: transparent;
@@ -14,10 +14,13 @@ const Select = styled.select`
   color: ${color.LIGHT_GRAY};
   width: 100%;
   box-sizing: border-box;
+  border-radius: 0;
 
   &:focus {
     outline: none;
   }
+
+  -webkit-appearance:none;
 
   @media ${media.mobile} {
     font-size: 5vw;

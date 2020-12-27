@@ -68,7 +68,7 @@ export const Error = styled(Paragraph)`
   height: 1vw;
   font-size: 1vw;
   color: ${color.RED};
-  margin: 0;
+  margin: 0 0 1vw;
 
   @media ${media.mobile} {
     height: 3vw;

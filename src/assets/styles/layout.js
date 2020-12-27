@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const LandingPageContainer = styled(Container)`
-  background: linear-gradient(rgba(13, 2, 26, 0.7) 40%, rgba(33, 23, 66, 0.7), rgba(63, 46, 120, 0.7));
+  background: linear-gradient(rgba(13, 2, 26, 0.5) 40%, rgba(33, 23, 66, 0.5), rgba(63, 46, 120, 0.5));
 `;
 
 export const Form = styled.div`
@@ -30,7 +30,6 @@ export const Form = styled.div`
 `;
 
 export const QuoteForm = styled(Form)`
-  margin-top: 0;
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.5);
 

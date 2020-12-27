@@ -22,6 +22,10 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
   const [checkedOut, setCheckedOut ] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     window.onbeforeunload = () => true;
   });
 
@@ -65,7 +69,7 @@ const QuoteOverview = ({ quote, handleUpdateQuote }) => {
       { !quote.quoteId && <Subtitle>Oops something went wrong, please try again</Subtitle>}
       { quote.variable_options && !checkedOut && (
         <>
-        <Subtitle>Premium: {formatPremium(quote.premium)}</Subtitle>
+        <Subtitle>Annual Premium: {formatPremium(quote.premium)}</Subtitle>
         <QuoteForm>
           <div>
             <Label>{quote.variable_options.deductible.title}</Label>
