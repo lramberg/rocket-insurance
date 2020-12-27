@@ -1,8 +1,8 @@
 .App {
   background-image:
-    linear-gradient(rgba(2, 6, 26, 0.7) 40%, rgba(35, 25, 80, 0.7), rgba(61, 34, 151, 0.7)),
-    url('https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    linear-gradient(rgba(5, 15, 61, 0.7) 5%, rgba(2, 6, 26, 0.7)),
+    url('https://images.pexels.com/photos/41162/moon-landing-apollo-11-nasa-buzz-aldrin-41162.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: top;
 }

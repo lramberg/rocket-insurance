@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const LandingPageContainer = styled(Container)`
-  background: linear-gradient(rgba(2, 6, 26, 0.4) 40%, rgba(35, 25, 80, 0.4), rgba(61, 34, 151, 0.1));
+  background: linear-gradient(rgba(5, 15, 61, 0.45) 5%, rgba(2, 6, 26, 0.75));
 `;
 
 export const Form = styled.div`
@@ -21,7 +21,7 @@ export const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1vw 3vw;
+  padding: 1vw 2vw;
 
   @media ${media.mobile} {
     width: 90%;
@@ -31,13 +31,11 @@ export const Form = styled.div`
 
 export const QuoteForm = styled(Form)`
   background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.5);
 
   @media ${media.mobile} {
     margin-top: 5vw;
     align-items: flex-start;
-    background-color: transparent;
-    box-shadow: none;
   }
 `;
 
