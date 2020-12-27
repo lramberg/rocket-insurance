@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rocket-insurance/static/css/main.aef5f809.chunk.css",
-    "main.js": "/rocket-insurance/static/js/main.debeea3f.chunk.js",
-    "main.js.map": "/rocket-insurance/static/js/main.debeea3f.chunk.js.map",
+    "main.js": "/rocket-insurance/static/js/main.6cc2ff4f.chunk.js",
+    "main.js.map": "/rocket-insurance/static/js/main.6cc2ff4f.chunk.js.map",
     "runtime-main.js": "/rocket-insurance/static/js/runtime-main.1ec0f372.js",
     "runtime-main.js.map": "/rocket-insurance/static/js/runtime-main.1ec0f372.js.map",
     "static/js/2.a81bff52.chunk.js": "/rocket-insurance/static/js/2.a81bff52.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.1ec0f372.js",
     "static/js/2.a81bff52.chunk.js",
     "static/css/main.aef5f809.chunk.css",
-    "static/js/main.debeea3f.chunk.js"
+    "static/js/main.6cc2ff4f.chunk.js"
   ]
 }
