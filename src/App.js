@@ -50,10 +50,17 @@ function App() {
     <div className='App' style={{ minHeight: height }}>
       <Switch>
         <Route exact path='/'>
-          <RatingInformation handleCreateQuote={handleCreateQuote} apiError={apiError} setApiError={setApiError} />
+          <RatingInformation
+            handleCreateQuote={handleCreateQuote}
+            apiError={apiError}
+            setApiError={setApiError}
+          />
         </Route>
         <Route exact path='/quote-overview'>
-          <QuoteOverview quote={quote} handleUpdateQuote={handleUpdateQuote} />
+          <QuoteOverview
+            quote={quote}
+            handleUpdateQuote={handleUpdateQuote}
+          />
         </Route>
       </Switch>
     </div>
