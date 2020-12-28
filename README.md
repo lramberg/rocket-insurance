@@ -13,6 +13,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - cd \<path-to\>/rocket-insurance
   - yarn build
 
-## Building
+## Deploying
   - cd \<path-to\>/rocket-insurance
   - yarn deploy
