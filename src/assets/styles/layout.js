@@ -36,6 +36,8 @@ export const QuoteForm = styled(Form)`
   @media ${media.mobile} {
     margin-top: 5vw;
     align-items: flex-start;
+    background-color: transparent;
+    box-shadow: none;
   }
 `;
 
