@@ -44,7 +44,7 @@ const Input = ({ placeholder, onChange, type, maxLength }) => {
       placeholder={placeholder}
       onChange={onChange}
       maxLength={maxLength ?? 30} // would match character limit in the database
-      autoComplete='off'
+      autoComplete='no'
     />
   )
 }
